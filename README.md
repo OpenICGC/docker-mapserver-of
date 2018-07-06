@@ -39,5 +39,15 @@ Aquests índexos es poden generar amb la GDAL, passant-li un directori d'arixus.
 Per això tenim l'arxiu `gdal_buildindex.sh`, que obre un docker amb la GDAL
 2.2.4 i executa l'arxiu `dades/index.sh`, que és el que fa la indexació.
 
+# Nivells de zoom
+
+Comparant amb GeoView i sobreposant:
+
+- 945 resolució nativa del 0.25m
+- Podem estirar el 0.25 fins a 9450, on agafem el 25K (2.5m)
+- 10m serien 9450*4=37800.
+
+- 
+
 
 
