@@ -4,6 +4,7 @@
 docker run -v "$PWD/of25c.map:/of25c.map" -p 5000:5000 \
 	-v /mnt/datacloud_2:/dades/datacloud \
 	-v "$PWD/dades/:/dades/" \
+	-v "/dades/rasters:/rasters/" \
 	-v "$PWD/lighttpd.conf:/lighttpd.conf" \
 	-e DEBUG:3 \
 	-v "$PWD/dades/log/:/var/log/" \

@@ -1,4 +1,5 @@
 #!/bin/bash
+#https://trac.osgeo.org/gdal/wiki/CloudOptimizedGeoTIFF#HowtoreaditwithGDAL
 date
 # Uns 20s
 gdalbuildvrt -overwrite /dades/rasters/of5m.vrt -srcnodata 0 -vrtnodata 0 /dades/datacloud/of5m_ETRS89/tif_unzip/*.tif
