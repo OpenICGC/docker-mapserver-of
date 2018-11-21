@@ -1,6 +1,6 @@
 # vim: ts=4:sw=4:noet
 MAP
-NAME of25c
+NAME orto25c
 
 IMAGECOLOR 0 255 0
 #Upper Left  (  258877.500, 4749635.000) (  0d 2'54.52"E, 42d51'40.55"N)
@@ -65,7 +65,7 @@ EMPTY ""
       OWS_ABSTRACT "ICGC_FILE2GEOSERVICE"
       OWS_ENABLE_REQUEST   "*"      
       OWS_FEATURE_INFO_MIME_TYPE  "text/html"
-      OWS_ONLINERESOURCE "http://172.17.50.102/cgi-bin/mapserv?map=/dades/of25c/of25c.map&"    
+      OWS_ONLINERESOURCE "http://172.30.24.6/cgi-bin/mapserv?map=/orto25c.map&"    
       OWS_SRS "EPSG:23031 EPSG:4326  EPSG:25831 EPSG:4258 EPSG:4230 EPSG:3857 EPSG:32631"
       OWS_EXTENT                       "263747.60 4484436.53  527495.20 4748184.13"
       OWS_ACCESSCONTRAINTS             "NONE"
@@ -98,38 +98,45 @@ EMPTY ""
 END
 
 LAYER
-    NAME "of25c_25K"
-    GROUP "of25c"
+    NAME "orto25c"
     STATUS ON
     TYPE RASTER 
-	DATA "/rasters/of4m2ovw.tif"
-    MINSCALEDENOM 1890
-    OFFSITE 0 0 0
+	DATA "/dades/of25cCOG_full.tif"
 	METADATA
 		OWS_SRS             "EPSG:23031 EPSG:4326 EPSG:25831 EPSG:4258 EPSG:4230 EPSG:3857 EPSG:32631"
-		OWS_NAME            "of25c"
+		OWS_NAME            "orto25c"
 		OWS_EXTENT          "263747.00 4484436.00  527495.0 4748184.00"
-		OWS_TITLE	    "of25c"
+		OWS_TITLE	    "orto25c"
 	END
 END 
 
 LAYER
-    NAME "of25c_5K"
-    GROUP "of25c"
+    NAME "ortogris"
+    STATUS ON
+    PROCESSING "BANDS=1,1,1"
+    TYPE RASTER
+        DATA "/dades/of25cCOG_full.tif"
+        METADATA
+                OWS_SRS             "EPSG:23031 EPSG:4326 EPSG:25831 EPSG:4258 EPSG:4230 EPSG:3857 EPSG:32631"
+                OWS_NAME            "ortogris"
+                OWS_EXTENT          "263747.00 4484436.00  527495.0 4748184.00"
+                OWS_TITLE           "ortogris"
+        END
+END
+
+
+LAYER
+    NAME "of25cDatacloud"
+#    GROUP "of25cDatacloud"
     STATUS ON
     TYPE RASTER 
-    TILEINDEX "tileindex_full.shp"
-    TILEITEM "location"
-#    MAXSCALEDENOM 36112
-    MAXSCALEDENOM 1890
-    OFFSITE 0 0 0
+	DATA "/dades/datacloud/of25c_ETRS89/mosaic/of25c_catalunya_2016_2017.tif"
 	METADATA
 		OWS_SRS             "EPSG:23031 EPSG:4326 EPSG:25831 EPSG:4258 EPSG:4230 EPSG:3857 EPSG:32631"
-		OWS_NAME            "of25c"
+		OWS_NAME            "of25cDatacloud"
 		OWS_EXTENT          "263747.00 4484436.00  527495.0 4748184.00"
-		OWS_TITLE	    "of25c"
+		OWS_TITLE	    "of25cDatacloud"
 	END
 END 
-
 
 END
