@@ -1,6 +1,6 @@
 # vim: ts=4:sw=4:noet
 MAP
-NAME orto25c
+NAME ortofoto
 
 IMAGECOLOR 0 0 0
 #Upper Left  (  258877.500, 4749635.000) (  0d 2'54.52"E, 42d51'40.55"N)
@@ -98,19 +98,6 @@ EMPTY ""
 END
 
 LAYER
-    NAME "orto25c"
-    STATUS ON
-    TYPE RASTER 
-	DATA "/dades/of25cCOG_full.tif"
-	METADATA
-		OWS_SRS             "EPSG:23031 EPSG:4326 EPSG:25831 EPSG:4258 EPSG:4230 EPSG:3857 EPSG:32631"
-		OWS_NAME            "orto25c"
-		OWS_EXTENT          "263747.00 4484436.00  527495.0 4748184.00"
-		OWS_TITLE	    "orto25c"
-	END
-END 
-
-LAYER
     NAME "ortogris"
     STATUS ON
     PROCESSING "BANDS=1,1,1"
@@ -126,17 +113,17 @@ END
 
 
 LAYER
-    NAME "of25cDatacloud"
-#    GROUP "of25cDatacloud"
+    NAME "orto25c"
     STATUS ON
     TYPE RASTER 
-	DATA "/dades/datacloud/of25c_ETRS89/mosaic/of25c_catalunya_2016_2017.tif"
+	DATA "/dades/of25cCOG_full.tif"
 	METADATA
 		OWS_SRS             "EPSG:23031 EPSG:4326 EPSG:25831 EPSG:4258 EPSG:4230 EPSG:3857 EPSG:32631"
-		OWS_NAME            "of25cDatacloud"
+		OWS_NAME            "orto25c"
 		OWS_EXTENT          "263747.00 4484436.00  527495.0 4748184.00"
-		OWS_TITLE	    "of25cDatacloud"
+		OWS_TITLE	    "orto25c"
 	END
 END 
+
 
 END
