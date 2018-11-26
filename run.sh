@@ -7,6 +7,7 @@ docker run -d -p 80:5000 \
 	-v "/dades/:/dades/" \
 	-v "$PWD/lighttpd.conf:/lighttpd.conf" \
 	-v "$PWD/dades/log/:/var/log/" \
+	-e "MIN_PROCS=3" -e "MAX_PROCS=10" -e "MAX_LOAD_PER_PROC=4" -e "IDLE_TIMEOUT=20" \
 	--cap-add SYS_ADMIN --cap-add DAC_READ_SEARCH \
 	--security-opt seccomp=unconfined --privileged \
         --restart unless-stopped \
