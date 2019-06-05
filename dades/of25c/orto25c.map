@@ -31,7 +31,7 @@ OUTPUTFORMAT
   NAME "png"
   DRIVER AGG/PNG
   MIMETYPE "image/png"
-  IMAGEMODE RGB
+  IMAGEMODE RGBA
   TRANSPARENT ON
   EXTENSION "png"
 #  FORMATOPTION "QUANTIZE_FORCE=on"
@@ -100,9 +100,10 @@ END
 LAYER
     NAME "ortogris"
     STATUS ON
-    PROCESSING "BANDS=1,1,1"
+    PROCESSING "BANDS=1,1,1,4"
+#    OFFSITE "#00000000"
     TYPE RASTER
-        DATA "/dades/of25cCOG_full.tif"
+        DATA "/dades/of25c_catalunya.ecw"
         METADATA
                 OWS_SRS             "EPSG:23031 EPSG:4326 EPSG:25831 EPSG:4258 EPSG:4230 EPSG:3857 EPSG:32631"
                 OWS_NAME            "ortogris"
@@ -115,8 +116,9 @@ END
 LAYER
     NAME "orto25c"
     STATUS ON
+    PROCESSING "BANDS=1,2,3,4"
     TYPE RASTER 
-	DATA "/dades/of25cCOG_full.tif"
+        DATA "/dades/of25c_catalunya.ecw"
 	METADATA
 		OWS_SRS             "EPSG:23031 EPSG:4326 EPSG:25831 EPSG:4258 EPSG:4230 EPSG:3857 EPSG:32631"
 		OWS_NAME            "orto25c"
