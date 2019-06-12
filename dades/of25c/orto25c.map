@@ -101,9 +101,9 @@ LAYER
     NAME "ortogris"
     STATUS ON
     PROCESSING "BANDS=1,1,1,4"
-#    OFFSITE "#00000000"
+    PROCESSING "RESAMPLE=AVERAGE"
     TYPE RASTER
-        DATA "/dades/of25c_catalunya.ecw"
+        DATA "/dades2/of25c_catalunya.ecw"
         METADATA
                 OWS_SRS             "EPSG:23031 EPSG:4326 EPSG:25831 EPSG:4258 EPSG:4230 EPSG:3857 EPSG:32631"
                 OWS_NAME            "ortogris"
@@ -117,8 +117,9 @@ LAYER
     NAME "orto25c"
     STATUS ON
     PROCESSING "BANDS=1,2,3,4"
+    PROCESSING "RESAMPLE=AVERAGE"
     TYPE RASTER 
-        DATA "/dades/of25c_catalunya.ecw"
+        DATA "/dades2/of25c_catalunya.ecw"
 	METADATA
 		OWS_SRS             "EPSG:23031 EPSG:4326 EPSG:25831 EPSG:4258 EPSG:4230 EPSG:3857 EPSG:32631"
 		OWS_NAME            "orto25c"
@@ -127,5 +128,19 @@ LAYER
 	END
 END 
 
+LAYER
+    NAME "ortoi25c"
+    STATUS ON
+    PROCESSING "BANDS=1,2,3,4"
+    PROCESSING "RESAMPLE=AVERAGE"
+    TYPE RASTER 
+        DATA "/dades/oi25c_catalunya.ecw"
+	METADATA
+		OWS_SRS             "EPSG:23031 EPSG:4326 EPSG:25831 EPSG:4258 EPSG:4230 EPSG:3857 EPSG:32631"
+		OWS_NAME            "ortoi25c"
+		OWS_EXTENT          "263747.00 4484436.00  527495.0 4748184.00"
+		OWS_TITLE	    "ortoi25c"
+	END
+END 
 
 END
