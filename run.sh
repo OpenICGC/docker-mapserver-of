@@ -5,7 +5,7 @@
 docker stop ms_ecw
 docker rm ms_ecw
 docker run -d -p 8080:80 \
-	-v "/home/geoproces/docker-mapserver-of/dades/of25c/orto25c.map:/orto25c.map" \
+	-v "/home/geoproces/docker-mapserver-of/maps/:/maps/" \
 	-v "/dades2/:/dades2/" \
 	-v "/dades/:/dades/" \
 	-v "/home/geoproces/docker-mapserver-of/fcgid.conf:/etc/apache2/mods-enabled/fcgid.conf" \
