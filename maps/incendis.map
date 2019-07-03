@@ -1,0 +1,126 @@
+# vim: ts=4:sw=4:noet
+MAP
+NAME incendis
+
+IMAGECOLOR 0 0 0
+
+# TODO: arxiu epsg, filtrar només els EPSGS que s'using
+# - mira GRD per a canvi ED50 ... web icgc (Víctor)
+# - mira paràmetre DEBUG per a veure quina info va al LOG
+
+CONFIG "PROJ_LIB" '/usr/share/proj/'
+CONFIG "MS_ERRORFILE" '/var/log/incendis.log'
+DEBUG 2
+
+STATUS ON
+EXTENT 285552.675 4560136.275 309649.425 4585719.975
+
+#Unitats del mapa
+UNITS METERS 
+MAXSIZE 4096
+SHAPEPATH "/dades/"
+
+#Format de sortida de la imatge
+OUTPUTFORMAT
+  NAME "png"
+  DRIVER AGG/PNG
+  MIMETYPE "image/png"
+  IMAGEMODE RGBA
+  TRANSPARENT ON
+  EXTENSION "png"
+END
+
+OUTPUTFORMAT
+  NAME "jpeg"
+  DRIVER AGG/JPEG
+  MIMETYPE "image/jpeg"
+  IMAGEMODE RGB
+  TRANSPARENT OFF
+  EXTENSION "jpg"
+#  FORMATOPTION "GAMMA=0.75"
+  FORMATOPTION "QUALITY=95"
+END
+
+#Projecció en coordenades geogràfiques
+PROJECTION
+	"init=epsg:25831"
+END
+
+#Definició de las  capacitats 
+WEB
+IMAGEPATH "/dades/html/tmp/"
+IMAGEURL "/tmp/"
+EMPTY ""
+ METADATA
+      OWS_TITLE "Servei Raster Incendis ICGC"
+      OWS_ABSTRACT "ICGC_FILE2GEOSERVICE"
+      OWS_ENABLE_REQUEST   "*"      
+      OWS_FEATURE_INFO_MIME_TYPE  "text/html"
+      #OWS_ONLINERESOURCE "http://172.30.22.141:8080/?map=/maps/incendis.map&"    
+      OWS_ONLINERESOURCE "http://geoserveis.icgc.cat/servei/catalunya/incendis/wms"
+      OWS_SRS "EPSG:23031 EPSG:4326  EPSG:25831 EPSG:4258 EPSG:4230 EPSG:3857 EPSG:32631"
+      OWS_EXTENT                       "285552.675 4560136.275 309649.425 4585719.975"
+      OWS_ACCESSCONTRAINTS             "NONE"
+      OWS_ADDRESSTYPE                  "MAILING ADDRESS"    
+      OWS_CITY                         "Barcelona"
+      OWS_STATEORPROVINCE              "Barcelona"    
+      OWS_CONTACTELECTRONICMAILADDRESS ""    
+      OWS_CONTACTPERSON                ""
+      OWS_CONTACTORGANIZATION          "Institut Cartogràfic i Geològic de Catalunya"    
+      OWS_FEES                         "http://www.icgc.cat"          
+      OWS_ADDRESS                      "Parc de Montjuic sn"     
+      OWS_POSTCODE                     "08038"
+      OWS_COUNTRY                      "Spain"
+      OWS_CONTACTPOSITION              "" 
+      OWS_ACCESSCONSTRAINTS            "none"
+      OWS_CONTACTVOICETELEPHONE        ""
+      OWS_SERVICE_ONLINERESOURCE       ""
+      OWS_ROLE                         "Provider"
+      OWS_KEYWORDLIST                  "Catalunya,servei,Mapa"
+      wms_enable_request               "GetMap GetCapabilities"
+      OWS_CONTACTFACSIMILETELEPHONE    ""
+      OWS_HOURSOFSERVICE               ""
+      OWS_CONTACTINSTRUCTIONS          ""
+      OWS_ATTRIBUTION_ONLINERESOURCE   "http://www.icgc.cat"
+      OWS_ATTRIBUTION_TITLE            "ICGC"
+      OWS_BBOX_EXTENDED                "True"     
+      OWS_HTTP_MAX_AGE "3600"
+      LABELCACHE_MAP_EDGE_BUFFER "10"
+      OWS_SLD_ENABLED "true"
+  END
+END
+
+LAYER
+    NAME "20190701-RiberaEbre-orto15cm-rgb"
+    STATUS ON
+    PROCESSING "BANDS=1,2,3"
+    OFFSITE 0 0 0
+    PROCESSING "RESAMPLE=AVERAGE"
+    TYPE RASTER
+        DATA "/dades/if_riberaebre_20190701.tif"
+        METADATA
+                OWS_SRS             "EPSG:23031 EPSG:4326 EPSG:25831 EPSG:4258 EPSG:4230 EPSG:3857 EPSG:32631"
+                OWS_NAME            "20190701-RiberaEbre-orto15cm-rgb"
+                OWS_EXTENT          "285552.675 4560136.275 309649.425 4585719.975"
+                OWS_TITLE           "Incendi Flix Juny 2019 Visible"
+        END
+END
+
+
+LAYER
+    NAME "20190701-RiberaEbre-orto15cm-irc"
+    STATUS ON
+    PROCESSING "BANDS=4,1,2"
+    PROCESSING "RESAMPLE=AVERAGE"
+    OFFSITE 0 0 0
+    TYPE RASTER 
+        DATA "/dades/if_riberaebre_20190701.tif"
+	METADATA
+		OWS_SRS             "EPSG:23031 EPSG:4326 EPSG:25831 EPSG:4258 EPSG:4230 EPSG:3857 EPSG:32631"
+		OWS_NAME            "20190701-RiberaEbre-orto15cm-irc"
+                OWS_EXTENT          "285552.675 4560136.275 309649.425 4585719.975"
+		OWS_TITLE	    "Incidendi Flix Juny 2019 Infrarroig"
+	END
+END 
+
+END
